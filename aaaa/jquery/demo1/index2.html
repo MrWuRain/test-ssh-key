@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <style>
+        #box{
+            width: 700px;
+            height: 220px;
+            margin: 0 auto;
+            border: 1px solid red;
+            position: relative;
+            overflow: hidden;
+        }
+        #left{
+            width: 100px;
+            height: 220px;
+            line-height: 220px;
+            font-size: 100px;
+            text-align: center;
+            font-weight: bold;
+            background-color: black;
+            background: rgba(0,0,0,0.4);
+            cursor: default;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        #right{
+            width: 100px;
+            height: 220px;
+            line-height: 220px;
+            text-align: center;
+            font-size: 100px;
+            font-weight: bold;
+            background-color: black;
+            background: rgba(0,0,0,0.4);
+            cursor: default;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 999;
+
+        }
+        
+        #move{
+            width: 3500px;
+            height: 220px;
+            position: absolute;
+        }
+        img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+   <div id="box">
+       <div id="left" class="btn">
+           <
+       </div>
+       <div id="move">
+           <img src="../img/1.jpg">
+           <img src="../img/2.jpg">
+           <img src="../img/3.jpg">
+           <img src="../img/4.jpg">
+           <img src="../img/5.jpg">
+       </div>
+       <div id="right" class="btn">
+           >
+       </div>
+   </div>
+
+   <script>
+       var x = $("#move");
+       var count=0;
+       $("#left").click(function(){
+           count++;
+           if(count<5){
+               $(x).animate({"left":(-700*count)+""},1000)
+           }
+           if(count==5){
+               count=4
+               $(x).left("-2800")
+           }
+       })
+       $("#right").click(function(){
+           count--;
+           if(count>-1){
+               $(x).animate({"left":(-700*count)+""},1000)
+           }
+           if(count==-1){
+               count==0;
+               $(x).left("0")
+           }
+       })
+   </script>
+</body>
+</html>

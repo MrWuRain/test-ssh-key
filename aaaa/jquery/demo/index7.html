@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+    <style type="text/css">
+       #box{
+           width: 200px;
+           height: 200px;
+           background-color: #003eff;
+       }
+        #tc{
+            width: 200px;
+            height: 200px;
+            background-color: #BD001F;
+        }
+    </style>
+</head>
+<body>
+  <div id="box">
+
+  </div>
+  <div id="tc"></div>
+<script type="text/javascript" >
+    $("#box").hover(function(){
+        $(this).css("background-color","red")
+        //$("#tc").hide(2000)  //隐藏
+       // $("#tc").fadeOut(2000) //淡出
+       // $("#tc").slideDown(2000)  //向下滑动显示
+        $("#tc").fadeTo(2000,0.4)//在指定时间内将其透明度变为0.4
+    },function(){
+        $(this).css("background-color","#003eff")
+        //$("#tc").show(2000)  //显示
+       // $("#tc").fadeIn(2000)  //淡入
+       //$("#tc").slideUp(2000)  //向上滑动隐藏
+        $("#tc").fadeTo(2000,1)//在指定时间内将其透明度变为1
+
+    })
+</script>
+</body>
+</html>

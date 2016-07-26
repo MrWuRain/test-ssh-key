@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+  
+	$(document).ready(function(){
+		console.log('ready')
+	})
+   $.holdReady(true)
+ function time(){
+    	$.holdReady(false);
+    } 
+    setTimeout(time,5000)
+</script>
+</body>
+</html>

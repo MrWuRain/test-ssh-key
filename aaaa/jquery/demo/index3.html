@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证表单</title>
+	<script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+	<style type="text/css">
+      #box{
+      	width: 600px;
+      	border: 1px solid #dfdfdf;
+      	margin: 0 auto;
+      }
+      table{
+      	margin-left: 10px;
+      }
+      td{
+      	height: 30px;
+      	min-width: 140px;
+      }
+     
+      h1{
+      	margin: 0;
+      	height: 60px;
+      	line-height: 60px;
+      	background-color: grey;
+        text-align: center;
+      }
+      p{
+      	margin-left: 10px;
+      }
+      #error1,#error2{
+      	margin-left: 10px;
+      	width: 590px;
+      	height: 40px;
+      	line-height: 40px;
+      	border-bottom: 1px solid gray;
+      	border-top: 1px solid gray;
+      	color: #BD001F;
+      	font-weight: bold;
+      }
+      #btn{
+      	width: 200px;
+      	height: 30px;
+      	border: 1px solid #A0C2F9;
+      	background-color: #DDDDDD;
+      }
+      
+	</style>
+	
+	
+
+</head>
+<body>
+	<div id="box">
+		<div id="top">
+				<h1>用户注册表单</h1>
+				<p id="error">请填写一下表单点击注册</p>
+		</div>
+		<div id="centent">
+			<div id="error1">登录信息</div>
+			<table id="tab1">
+				<tr>
+					<td>用户名:</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>密码:</td>
+					<td><input type="password"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>再次输入密码:</td>
+					<td><input type="password"></td>
+					<td><span></span></td>
+				</tr>
+			</table>
+			<div id="error2">个人信息</div>
+			<table id="tab2">
+				<tr>
+					<td>姓名:</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>电子邮件:</td>
+					<td><input type="email"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>个人博客(Url):</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>电话号码:</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>手机号码:</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>联系地址:</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+					<td>邮政编码:</td>
+					<td><input type="text"></td>
+					<td><span></span></td>
+				</tr>
+				<tr>
+				    <td></td>
+					<td><input type="button" value="注册" id="btn"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<script>
+	
+        $("input").not("#btn").css("width","220px");
+        var reg1 = /^([a-zA-Z_-]|[\u4e00-\u9fa5]){3,20}$/i;
+        var reg2 = /^[0-9a-z_]{6,16}$/i;
+      $("input:eq(0)").on("blur",function(){
+       	
+       	if(this.value==""){
+            $("span:eq(0)").html("用户名不能为空")
+                            .css("color","red")
+       	}else if(reg1.test(this.value)){
+       		$("span:eq(0)").html("√")
+                            .css("color","green")
+       	}else{
+       		$("span:eq(0)").html("×")
+                                .css("color","red")
+       	}
+       	})
+                .on("focus",function(){
+                    	$("span:eq(0)").html("")
+                    })
+        
+        var inp1 = $("input:eq(1)");
+        inp1.blur(function(){
+        	// var reg2 = /^([a-zA-Z][0-9]_{5,16})|([0-9][a-zA-Z]_){5,16}|([a-zA-Z]_[0-9]){5,16}$/
+        	
+        	if($(this).val()==""){
+        		$("span:eq(1)").html("密码不能为空")
+        		                .css("color","red")
+        	}else if(reg2.test($(this).val())){
+                $("span:eq(1)").html("√")
+                                .css("color","green")
+        	}else{
+        		$("span:eq(1)").html("×")
+                                .css("color","red")
+        	}
+        	
+        })
+        
+         
+       $("input:eq(2)").blur(function(){
+        	// var inp1 = $("input:eq(1)")
+        	 if($(this).val()==""){
+        		$("span:eq(2)").html("密码不能为空")
+        		               .css("color","red")
+        	}else if($(this).val()==inp1.val()){
+        		$("span:eq(2)").html("密码一致")
+        		               .css("color","green")
+        	}else{
+                $("span:eq(2)").html("密码不一致")
+        		               .css("color","red")
+        	}
+        })
+  var arr = []
+function run(){
+  var inpt1 = $("input:eq(0)");
+  var inpt2 = $("input:eq(1)");
+  var inpt3 = $("input:eq(2)");
+
+  if(inpt1.val()==""){
+  	
+  	$("span:eq(0)").html("不能为空")
+  	               .css("color","red")
+    
+  }else if(reg1.test(inpt1.val())){
+  	
+  	$("span:eq(0)").html("√")
+  	               .css("color","green")
+  }else{
+  	
+  	$("span:eq(0)").html("×")
+  	               .css("color","red")
+  }
+
+  if(inpt2.val()==""){
+  	
+  	$("span:eq(1)").html("不能为空")
+  	               .css("color","red")
+  }else if(reg2.test(inpt2.val())){
+  	
+  	$("span:eq(1)").html("√")
+  	               .css("color","green")
+  }else{
+  
+  	$("span:eq(1)").html("×")
+  	               .css("color","red")
+  }
+
+   if(inpt3.val()==""){
+   	         
+        		$("span:eq(2)").html("密码不能为空")
+        		               .css("color","red")
+        	}else if(inpt3.val()==inpt2.val()){
+        		
+        		$("span:eq(2)").html("密码一致")
+        		               .css("color","green")
+        	}else{
+        		
+                $("span:eq(2)").html("密码不一致")
+        		               .css("color","red")
+        	}
+}
+
+
+
+   $("#btn").click(function(){
+   	    arr=[]
+   		run();
+      $("span").each(function(index,elms){
+      	  if(elms.innerHTML!=="√"){
+             arr.push(elms);
+      	  }else if($(this).html=="√"){
+      	  	alert("正确")
+      	  }
+      })
+      $("#error").html("表单中有"+arr.length+"处错误")
+                 .css("color","red")
+   })
+
+
+// var inpt = $("input").not("button");
+//        $("#btn").click(function(){
+//        	if(inpt.value==""){
+
+//        	}
+//        })
+	</script>
+</body>
+</html>

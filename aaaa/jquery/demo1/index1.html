@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <style>
+        #content{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #dfdfdf;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+     <div id="box">
+         <table id="table">
+             <tr>
+                 <td>属性名:</td>
+                 <td><input type="text"></td>
+             </tr>
+             <tr>
+                 <td>属性值:</td>
+                 <td><input type="text"></td>
+             </tr>
+             <tr>
+                 <td></td>
+                 <td><input type="button" value="确定" id="btn"><input type="button" value="重置" id="reset"></td>
+             </tr>
+         </table>
+         <div id="content">
+             衬衫 T恤 牛仔裤 休闲裤 短裤 针织衫 西服 西裤 西服套装 马甲/背心 羽绒服 棉服 夹克 POLO衫 卫衣 卫裤/运动裤 真皮皮衣 仿皮皮衣 风衣 羊毛衫 羊绒衫 毛呢大衣 中老年男装 大码男装 工装 加绒裤 唐装/中山装 设计师/潮牌
+         </div>
+     </div>
+
+<script>
+     $("#btn").click(function(){
+         key = $("input:first").val();
+         value = $("input:eq(1)").val();
+         $("#content").css(key,value)
+     })
+    $("#reset").click(function(){
+        $("input:first").val(" ");
+        $("input:eq(1)").val(" ")
+        $("#content").removeAttr("style")
+    })
+</script>
+</body>
+</html>

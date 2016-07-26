@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <style>
+        #ul li{
+            width: 200px;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        #div{
+            width: 200px;
+            height: 20px;
+            font-size: 14px;
+            background-color: yellow;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul">
+    <li><a href="#">治疗H7N9禽流感</a></li>
+    <li><a href="#">从乞丐的八卦故事</a></li>
+    <li><a href="#">韩国总统表示将与朝鲜对话</a></li>
+    <li><a href="#">习近平检阅海军驻三亚部队</a></li>
+    <li><a href="#">禽流感高危</a></li>
+</ul>
+
+<script>
+    var disX = 0;
+    var disY = 0;
+    var text;
+    $("a").each(function(index,elem){
+
+        $(this).on({
+            'mouseover':function(ev){
+                textDiv = $("<div id='div' style='position: absolute'></div>");
+                $(this).parent().append(textDiv)
+                disX = ev.pageX-$(textDiv).offset().left;
+                disY = ev.pageY-$(textDiv).offset().top;
+            },
+            'mousemove':function(ev){
+                text = $(elem).html()
+                $(textDiv).css({'left':ev.pageX,'top':ev.pageY-disY})
+                        .html(text)
+            },
+            'mouseout':function(){
+                textDiv.css("display","none")
+            }
+        })
+    })
+</script>
+</body>
+</html>

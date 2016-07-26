@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+</head>
+<body>
+	<div id="box">
+		用户:<input type="text"  /><br/>
+		密码:<input type="password"  /><br/>
+		<textarea cols="30" rows="10"></textarea><br/>
+		<button id="btn">改变颜色</button>
+	</div>
+
+	<script type="text/javascript">
+	
+        $("#btn").on("click",function(){
+        	$("input").css("background","red")
+        	          
+        })
+
+	</script>
+</body>
+</html>

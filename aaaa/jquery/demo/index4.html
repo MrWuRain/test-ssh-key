@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../jquery-3.0.0.min.js"></script>
+	<style type="text/css">
+       #box{
+       	width: 600px;
+       	height: 400px;
+       	border: 1px solid #dfdfdf;
+       	margin: 0 auto;
+       	position: relative;
+       }
+       ul{
+       	list-style: none;
+       	width: 600px;
+       	height: 40px;
+       	padding: 0;
+       	margin: 0;
+
+       }
+       ul li{
+       	width: 200px;
+       	height: 40px;
+       	text-align: center;
+       	line-height: 40px;
+       	float: left;
+       	cursor: pointer;
+       }
+       .content{
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        text-align: left;
+        display: none;
+       }
+       a{
+       	display: block;
+       }
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li>男装<div class="content" style="display:block">
+				衬衫 T恤 牛仔裤 休闲裤 短裤 针织衫 西服 西裤 西服套装 马甲/背心 羽绒服 棉服 夹克 POLO衫 卫衣 卫裤/运动裤 真皮皮衣 仿皮皮衣 风衣 羊毛衫 羊绒衫 毛呢大衣 中老年男装 大码男装 工装 加绒裤 唐装/中山装 设计师/潮牌
+				<a href="#">显示更多>></a>
+			</div></li>
+			<li>女装<div class="content">
+				连衣裙 衬衫 雪纺衫 T恤 牛仔裤 针织衫 休闲裤 小西装 卫衣 风衣 短外套 毛呢大衣 半身裙 短裤 打底衫 打底裤 吊带/背心 马甲 正装裤 中老年女装 大码女装 真皮皮衣 棉服 羊毛衫 羊绒衫 羽绒服 皮草 仿皮皮衣 加绒裤 婚纱 旗袍/唐装
+				<a href="#">偶数变色</a>
+			</div></li>
+			<li>配饰<div class="content">
+				太阳镜 光学镜架/镜片 防辐射眼镜 男士腰带/礼盒 棒球帽 遮阳帽 鸭舌帽 遮阳伞/雨伞 老花镜 女士丝巾/围巾/披肩 男士丝巾/围巾 女士腰带/礼盒 假领 防晒手套 装饰眼镜 游泳镜 领带/领结/领带夹 礼帽 贝雷帽 毛线/布面料 袖扣 真皮手套 毛线手套 毛线帽 口罩 围巾/手套/帽子套装 耳罩/耳包 钥匙扣
+				<a href="#">给奇数a元素加上颜色,隐藏偶数a元素</a>
+			</div></li>
+		</ul>
+		
+	</div>
+
+	<script type="text/javascript">
+	     $("li").each(function(){
+	     	// alert($(this).length)
+	     	$(this).click(function(){
+	     		$("li").children().css("display","none")
+	     		$(this).children().css({"display":"block","color":"black"})
+                // $("li").css({"background":"none","color":"black"})
+	     		$(this).css({"background":"pink","color":"red"})
+	     		        .siblings().css({"background":"none","color":"black"})   
+	     	})
+	     })
+
+        var str = $(".content:first").html()
+        // alert(typeof str)
+        str = str.split(" ");
+        // alert(typeof str)
+
+        var count=0;
+        $("a:first").click(function(){
+        	count++
+        	if(count%2==1){
+        		$(this).html("部分隐藏>>");
+        		for(var i = 0;i<str.length;i++){
+        			if(i%2==0){
+        				str[i].style.display="none"
+        			}
+        		}
+        		
+        	}
+        	if(count%2==0){
+                $(this).html("显示更多>>")
+        	}
+               // if($(this).html("显示更多>>")){
+               	
+               // }
+               // if($("a:first").html("部分隐藏>>")){
+               // $("a:first").html("显示更多>>")
+               // }
+        })
+	</script>
+</body>
+</html>

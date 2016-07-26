@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #dfdfdf;
+        }
+        #tc{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #dfdfdf;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        #div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #dfdfdf;
+            margin: 0 auto;
+            margin-top: 50px;
+            background-color: #003eff;
+        }
+    </style>
+</head>
+<body>
+  <div id="box">
+      <div id="tc">
+          <div id="div"></div>
+      </div>
+  </div>
+
+  <ul>
+      <li>sajfdsk</li>
+      <li>dsfdf</li>
+      <li>sdfdgd</li>
+
+  </ul>
+<script>
+
+    var dv = $("#box","#tc")
+    console.log(dv)
+    $("#div").closest("#tc").css("background","red")
+   $("li:first").empty();
+//   $("li:eq(1)").remove();
+    $("li:eq(1)").detach();
+
+</script>
+</body>
+</html>
